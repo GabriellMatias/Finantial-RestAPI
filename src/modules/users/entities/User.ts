@@ -14,13 +14,13 @@ export class User {
   @PrimaryGeneratedColumn('uuid')
   id?: string;
 
-  @Column()
+  @Column('varchar') 
   name: string;
 
-  @Column()
+  @Column('varchar')
   email: string;
 
-  @Column()
+  @Column('varchar')
   password: string;
 
   @OneToMany(() => Statement, statement => statement.user)
@@ -33,7 +33,7 @@ export class User {
   updated_at: Date;
 
   constructor() {
-    if(!this.id) {
+    if (!this.id) {
       this.id = uuid();
     }
   }
